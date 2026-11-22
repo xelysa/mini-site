@@ -132,7 +132,6 @@ function setUpForm() {
       adults: coming === "yes" ? adults : 0,
       names: coming === "yes" ? form.elements.names.value.trim() : "",
       notes: form.elements.notes.value.trim(),
-      phone: form.elements.phone.value.trim(),
       website: form.elements.website.value,
     });
 

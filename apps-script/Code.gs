@@ -7,7 +7,7 @@
  */
 
 const SHEET_NAME = 'RSVPs';
-const HEADERS = ['Timestamp', 'Child', 'Coming', 'Kids', 'Adults', 'Names', 'Allergies / notes', 'Phone'];
+const HEADERS = ['Timestamp', 'Child', 'Coming', 'Kids', 'Adults', 'Names', 'Allergies / notes'];
 
 /** Run once from the Apps Script editor: creates the RSVPs and Summary tabs. */
 function setup() {
@@ -55,7 +55,6 @@ function doPost(e) {
       yes ? count(p.adults, 4) : 0,
       yes ? text(p.names, 300) : '',
       text(p.notes, 1000),
-      text(p.phone, 40),
     ];
 
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
@@ -75,7 +74,7 @@ function doGet() {
 
 function text(value, max) {
   let s = String(value || '').trim().slice(0, max);
-  // Stop text being treated as a spreadsheet formula (also keeps "+353…" phone numbers as text)
+  // Stop text being treated as a spreadsheet formula
   if (/^[=+\-@]/.test(s)) s = "'" + s;
   return s;
 }
