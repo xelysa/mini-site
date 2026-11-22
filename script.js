@@ -108,7 +108,7 @@ function setUpForm() {
     const coming = form.elements.coming.value;
     if (!child.value.trim()) {
       child.setAttribute("aria-invalid", "true");
-      showError("Please add your child's name.");
+      showError("Please add your child's name (or children's names).");
       child.focus();
       return;
     }

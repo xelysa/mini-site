@@ -7,7 +7,7 @@
  */
 
 const SHEET_NAME = 'RSVPs';
-const HEADERS = ['Timestamp', 'Child', 'Coming', 'Kids', 'Adults', 'Names', 'Allergies / notes'];
+const HEADERS = ['Timestamp', 'Child(ren)', 'Coming', 'Kids', 'Adults', 'Names', 'Allergies / notes'];
 
 /** Run once from the Apps Script editor: creates the RSVPs and Summary tabs. */
 function setup() {
@@ -42,7 +42,7 @@ function doPost(e) {
     // Honeypot: real people never fill this field
     if (p.website) return json({ ok: true });
 
-    const child = text(p.child, 80);
+    const child = text(p.child, 150);
     const coming = p.coming === 'yes' ? 'Yes' : p.coming === 'no' ? 'No' : '';
     if (!child || !coming) return json({ ok: false, error: 'missing' });
 
