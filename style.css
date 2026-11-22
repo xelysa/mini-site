@@ -154,7 +154,7 @@ main {
 }
 .row dd { margin: 0; font-weight: 700; }
 
-.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 .chip {
   display: inline-block; padding: 9px 16px; border-radius: 999px; text-decoration: none;
   font-weight: 900; font-size: .9rem; color: var(--gold);
@@ -163,7 +163,7 @@ main {
 }
 .chip:hover { background: rgba(255, 197, 77, .26); transform: translateY(-1px); }
 
-.note { margin: 0; color: var(--soft); }
+.note { margin: 0; color: var(--soft); text-align: center; }
 
 /* ---------- RSVP ---------- */
 .rsvp { display: flex; flex-direction: column; gap: 26px; }

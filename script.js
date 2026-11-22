@@ -80,7 +80,7 @@ function setUpForm() {
   const submit = form.querySelector(".submit");
   const child = form.elements.child;
 
-  // Show counts and names only when "Yes!" is picked
+  // Show the counts only when "Yes!" is picked
   function syncComing() {
     ifYes.hidden = form.elements.coming.value !== "yes";
   }
@@ -130,7 +130,6 @@ function setUpForm() {
       coming,
       kids: coming === "yes" ? kids : 0,
       adults: coming === "yes" ? adults : 0,
-      names: coming === "yes" ? form.elements.names.value.trim() : "",
       notes: form.elements.notes.value.trim(),
       website: form.elements.website.value,
     });
