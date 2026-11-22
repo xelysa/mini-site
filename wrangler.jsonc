@@ -1,0 +1,8 @@
+// Cloudflare deploy settings. The site is plain static files: no build step.
+{
+  "name": "mini-site",
+  "compatibility_date": "2026-11-19",
+  "assets": {
+    "directory": "."
+  }
+}

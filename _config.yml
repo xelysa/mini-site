@@ -3,3 +3,5 @@ exclude:
   - apps-script
   - CLAUDE.md
   - README.md
+  - wrangler.jsonc
+  - _headers

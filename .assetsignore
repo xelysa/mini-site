@@ -1,0 +1,12 @@
+# Files that live in the repo but must not be served by Cloudflare
+.git
+.gitignore
+.assetsignore
+.wrangler
+wrangler.jsonc
+_config.yml
+CLAUDE.md
+README.md
+apps-script
+private
+node_modules
