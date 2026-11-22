@@ -1,0 +1,3 @@
+# Local-only files (original photos, screenshots). Never publish.
+private/
+.DS_Store
