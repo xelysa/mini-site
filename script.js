@@ -1,7 +1,7 @@
 // Lily is turning 6: RSVP form, countdown and snow.
 
 // Paste the Google Apps Script web-app URL here (ends in /exec).
-const RSVP_URL = "";
+const RSVP_URL = "https://script.google.com/macros/s/AKfycbybPwTuUtLYxQ-QNLsDNvTKWA4Qvst8DyRW45SiRxqw9bxFlgHTZFj7iM0yWHJ2W6oa/exec";
 
 const PARTY_DAY = new Date(2026, 11, 12); // 12 December 2026 (months start at 0)
 
