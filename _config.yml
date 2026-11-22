@@ -1,0 +1,5 @@
+# GitHub Pages settings: keep helper files off the public site.
+exclude:
+  - apps-script
+  - CLAUDE.md
+  - README.md
