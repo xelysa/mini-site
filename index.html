@@ -2,15 +2,143 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elisa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Lily is turning 6!</title>
+  <meta name="description" content="Lily's 6th birthday party: a demon-hunter Christmas party on Saturday 12 December, 2:30–5:30 PM.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#16123a">
+
+  <!-- Share preview (WhatsApp, iMessage, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lily is turning 6! 🎄⚔️">
+  <meta property="og:description" content="Saturday 12 December, 2:30–5:30 PM. Tap to RSVP.">
+  <meta property="og:image" content="https://xelysa.github.io/mini-site/assets/lily-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nunito:wght@500;700;800;900&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="lights" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <canvas class="snow" aria-hidden="true"></canvas>
+
   <main>
-    <h1>This is the birthday website for Lily!</h1>
-    <p>Stay tuned...</p>
-    <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+    <header class="hero">
+      <img class="hero-img" src="assets/lily-hero.jpg" width="768" height="1024"
+           alt="A cartoon girl with long wavy hair in a Santa hat, gold jacket and red dress, holding a glowing violet sword in front of a giant lit-up number 6 on a snowy night.">
+      <div class="hero-text">
+        <p class="invite">✦ You're invited ✦</p>
+        <h1 class="title">
+          <span class="name">Lily</span>
+          <span class="turning">is turning <span class="six">6</span></span>
+        </h1>
+        <p class="lede">Grab your sword and your Santa hat: join us for a sparkly, snowy, demon&#8209;hunting Christmas party!</p>
+        <p class="countdown" id="countdown" hidden></p>
+      </div>
+    </header>
+
+    <div class="flake-rule" aria-hidden="true">❄</div>
+
+    <section class="details" aria-labelledby="details-title">
+      <h2 id="details-title" class="visually-hidden">Party details</h2>
+      <dl class="card">
+        <div class="row"><dt>When</dt><dd><time datetime="2026-12-12T14:30">Saturday 12 December</time><br>2:30–5:30 PM</dd></div>
+        <div class="row"><dt>Where</dt><dd>11 Cul Cuille, Sandyford<br>Dublin 18 · D18 N8FH</dd></div>
+        <div class="row"><dt>Wear</dt><dd>Hunter outfits, glowing swords or Christmas jumpers welcome</dd></div>
+      </dl>
+      <div class="chips">
+        <a class="chip" href="https://maps.app.goo.gl/1mhLHb8hQiGYPBsM7" target="_blank" rel="noopener">Open in Google Maps →</a>
+        <a class="chip" href="party.ics" download="lily-6th-birthday.ics">Add to calendar</a>
+      </div>
+      <p class="note">Drop off and collect, or stay for a mince pie and a chat ☕</p>
+    </section>
+
+    <div class="flake-rule" aria-hidden="true">❄</div>
+
+    <section class="rsvp" aria-labelledby="rsvp-title">
+      <h2 id="rsvp-title" class="section-title">Will you join the hunt?</h2>
+
+      <div class="present">
+        <svg class="bow" viewBox="0 0 44 22" aria-hidden="true"><path d="M22 11C14 0 2 2 4 11c-2 9 10 11 18 0Z"/><path d="M22 11c8-11 20-9 18 0 2 9-10 11-18 0Z"/><circle cx="22" cy="11" r="4"/></svg>
+
+        <form id="rsvp-form" class="form" novalidate>
+          <div class="field">
+            <label for="child">Child's name</label>
+            <input id="child" name="child" type="text" autocomplete="off" maxlength="80" required>
+          </div>
+
+          <fieldset class="field">
+            <legend>Coming?</legend>
+            <div class="toggle">
+              <input type="radio" id="coming-no" name="coming" value="no">
+              <label for="coming-no">Can't make it</label>
+              <input type="radio" id="coming-yes" name="coming" value="yes" checked>
+              <label for="coming-yes">Yes!</label>
+            </div>
+          </fieldset>
+
+          <div class="if-yes" id="if-yes">
+            <div class="counts">
+              <div class="field">
+                <label for="kids">Children</label>
+                <div class="stepper">
+                  <button type="button" data-step="-1" data-for="kids" aria-label="One fewer child">−</button>
+                  <input id="kids" name="kids" type="number" inputmode="numeric" min="0" max="6" value="1">
+                  <button type="button" data-step="1" data-for="kids" aria-label="One more child">+</button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="adults">Adults</label>
+                <div class="stepper">
+                  <button type="button" data-step="-1" data-for="adults" aria-label="One fewer adult">−</button>
+                  <input id="adults" name="adults" type="number" inputmode="numeric" min="0" max="4" value="0">
+                  <button type="button" data-step="1" data-for="adults" aria-label="One more adult">+</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="names">Names of everyone coming</label>
+              <input id="names" name="names" type="text" maxlength="300" placeholder="e.g. Maya, Leo, Sarah (mum)">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Allergies or notes <span class="opt">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="3" maxlength="1000" placeholder="Allergies, dietary needs, drop-off info…"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="phone">Your phone <span class="opt">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="So we can reach you">
+          </div>
+
+          <!-- Honeypot: hidden from people, bots fill it in -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Leave this empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="error" id="form-error" role="alert" hidden></p>
+          <button class="submit" type="submit">Send RSVP</button>
+        </form>
+
+        <div class="thanks" id="thanks" tabindex="-1" hidden>
+          <p class="thanks-title">Thank you! 💜</p>
+          <p id="thanks-msg"></p>
+          <button type="button" class="link-btn" id="again">Send another reply</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="signoff">
+      <p>With love, Lily's family 💜</p>
+    </footer>
   </main>
 </body>
 </html>
